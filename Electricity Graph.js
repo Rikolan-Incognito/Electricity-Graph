@@ -72,9 +72,7 @@ async function two_days() {
     data_two_days = json.data.lt;
   } else if (country == "LV") {
     data_two_days = json.data.lv;
-  } else if (country == "FI") {
-    data_two_days = json.data.fi;
-  }
+  } else data_two_days = json.data.fi;
   
   return data_two_days;
   
