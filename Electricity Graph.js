@@ -66,14 +66,14 @@ async function two_days() {
 	let json = JSON.parse(html);
   let data_two_days = "";
   
-  if (country == "EE") {
-    data_two_days = json.data.ee;
-  } else if (country == "LT") {
+  if (country == "LT") {
     data_two_days = json.data.lt;
   } else if (country == "LV") {
     data_two_days = json.data.lv;
   } else if (country == "FI") {
     data_two_days = json.data.fi;
+  } else {
+    data_two_days = json.data.ee;
   }
   
   return data_two_days;
@@ -282,6 +282,7 @@ stack3Hor.layoutHorizontally();
 
 let leftBox = stack1Hor.addStack();
 let rightBox = stack1Hor.addStack();
+stack1.size = new Size(250,40);
 
 let leftText = leftBox.addStack();
 let rightText = rightBox.addStack();
