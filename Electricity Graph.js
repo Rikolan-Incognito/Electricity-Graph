@@ -212,6 +212,9 @@ function get_highest_price(prices, actual_index, bars) {
     }
   }
   highest = (highest * (100 + tax) / 1000).toFixed(2);
+  if (highest < 20) {
+    highest = 20;
+  }
   return highest;
 }
 
@@ -322,7 +325,13 @@ let prices_scaled = scale_prices();
 
 for (let i = actual_index - bars_before; i < bars + actual_index - bars_before; i++) {
  	if (i < prices_scaled.length) {
-    let bar = stack2Hor.addStack();
+    
+    // Creates a standard bar with a standard size
+    let bar_main = stack2Hor.addStack();
+    bar_main.size = new Size(6, 70);
+    bar_main.bottomAlignContent();
+    
+    let bar = bar_main.addStack();
   	bar.size = new Size(6, prices_scaled[i]);
   	bar.cornerRadius = 5;
     
