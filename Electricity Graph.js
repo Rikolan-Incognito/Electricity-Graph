@@ -26,7 +26,7 @@ function unix_to_normal(unix_time) {
   
   // Gets the propers times separately
 	var year = date.getFullYear();
-  var month = "0" + date.getMonth() + 1;
+  var month = "0" + (date.getMonth() + 1);
   var day = "0" + date.getDate();
   var hour = "0" + date.getHours();
   var minute = "0" + date.getMinutes();
