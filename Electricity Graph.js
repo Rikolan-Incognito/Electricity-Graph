@@ -427,6 +427,12 @@ for (let i = actual_index - bars_before; i < times_hours.length; i++) {
 stack3Hor.bottomAlignContent();
 
 
+// Siri response with current price and next cheapest price
+if (config.runsWithSiri) {
+  Speech.speak("The current price is " + tax_price + " cents per kilowatt hour.");
+}
+
+
 // Present the widget
 if (config.runsInWidget) {
   // If script is running in a widget, display the widget
