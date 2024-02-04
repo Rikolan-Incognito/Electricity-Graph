@@ -8,6 +8,7 @@ const hour_bars = 24; // Amount of bars (24 is optimal)
 const norm_line = 10; // in cents (shown as white dots)
 const cent = "s"; // Abbreviation for cents
 const theme = "dark"; // light/dark (theme switcher)
+const aesthetic_scale = true; // If true, the scale won't be streched out of proportion
 
 // Programmeeritud Eestis 🇪🇪 - Rikolan
 
@@ -212,7 +213,7 @@ function get_highest_price(prices, actual_index, bars) {
     }
   }
   highest = (highest * (100 + tax) / 1000).toFixed(2);
-  if (highest < 20) {
+  if ((highest < 20) && (aesthetic_scale)) {
     highest = 20;
   }
   return highest;
