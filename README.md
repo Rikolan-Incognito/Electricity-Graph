@@ -9,5 +9,9 @@ The widget has two modes - dark and light mode. The white bar shows the current 
 
 ![image](https://github.com/Rikolan-Incognito/Electricity-Graph/assets/156215178/abf71748-35fb-4588-9325-4b5afb78d017)
 
+Siri support (must be enabled in the Scriptable app itself)
+![image](https://github.com/Rikolan-Incognito/Electricity-Graph/assets/156215178/906ce697-719e-4d67-ad47-e6d8b0110680)
+
+
 Attributes that can be edited, when needed (it's set to Estonian parameters by defualt)
-![image](https://github.com/Rikolan-Incognito/Electricity-Graph/assets/156215178/05a05164-593a-4a26-83f4-e55a1e97569c)
+![image](https://github.com/Rikolan-Incognito/Electricity-Graph/assets/156215178/a1c9c549-aad7-44a7-845d-bc3b5c4dc4fb)
