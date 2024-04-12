@@ -5,10 +5,11 @@
 const tax = 22 // value in %
 const country = "EE" // Country codes (EE, LT, LV, FI)
 const hour_bars = 24; // Amount of bars (24 is optimal)
-const norm_line = 10; // in cents (shown as white dots)
+const norm_line = 5; // in cents (shown as white dots)
 const cent = "s"; // Abbreviation for cents
 const theme = "dark"; // light/dark (theme switcher)
 const aesthetic_scale = true; // If true, the scale won't be streched out of proportion
+const max_price_display = 5; // The maximum value set for the graph, if the prices are lower than the set value
 
 // Programmeeritud Eestis 🇪🇪 - Rikolan
 
@@ -213,8 +214,8 @@ function get_highest_price(prices, actual_index, bars) {
     }
   }
   highest = (highest * (100 + tax) / 1000).toFixed(2);
-  if ((highest < 20) && (aesthetic_scale)) {
-    highest = 20;
+  if ((highest < max_price_display) && (aesthetic_scale)) {
+    highest = max_price_display;
   }
   return highest;
 }
@@ -251,6 +252,7 @@ let bars = hour_bars;
 let bars_before = 1; // Doesn't add a bar, but rather shifts the current time indicator
 let highest_price = get_highest_price(prices, actual_index, bars); // converted to kWh and taxes included
 let theme_list = theme_switch();
+
 
 
 
@@ -313,7 +315,10 @@ stack1.addSpacer(5);
 function scale_prices() { 
   let prices_scaled = [];
   for (let i = 0; i < prices.length; i++) {
-    let scaled = (70 / highest_price) * Math.round(prices[i] * (100 + tax) / 1000);
+    let scaled = Math.round((70 / highest_price) * (prices[i] * (100 + tax) / 1000));
+    if (scaled < 6) {
+      scaled = 6;
+    }
     prices_scaled.push(scaled);
   } 
   return prices_scaled;
@@ -365,7 +370,7 @@ for (let i = actual_index - bars_before; i < bars + actual_index - bars_before; 
     let bar = stack2Hor.addStack();
   	bar.size = new Size(6, 6);
     bar.cornerRadius = 5;
-    bar.backgroundColor = new Color(theme_list[2], 0.4);
+    bar.backgroundColor = new Color(theme_list[2], 0.3);
     
     if (i < bars + actual_index - 2) {
       stack2Hor.addSpacer(6);
