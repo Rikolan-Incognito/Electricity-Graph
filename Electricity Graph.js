@@ -259,11 +259,11 @@ async function get_graph() {
                 price_rounded += eg_json[x].price;
             }
             
-            price_rounded = (Math.round(((price_rounded / 4) * (100 + tax) / 1000) * 100) / 100).toFixed(2);
+            price_rounded = Math.round(((price_rounded / 4) * (100 + tax) / 1000) * 100) / 100;
             graph.push([time, price_rounded, time_chart[3], "00"]);
             i += 3;
         } else {
-            price_rounded = (Math.round((price * (100 + tax) / 1000) * 100) / 100).toFixed(2);
+            price_rounded = Math.round((price * (100 + tax) / 1000) * 100) / 100;
             graph.push([time, price_rounded, time_chart[3], time_chart[4]]);
         }
         
@@ -369,7 +369,7 @@ rightText.layoutVertically();
 
 
 // Add current price in big text
-let priceItem = leftText.addText(graph[current_index][1].toString());
+let priceItem = leftText.addText(graph[current_index][1].toFixed(2).toString());
 priceItem.font = Font.boldSystemFont(30);
 priceItem.textColor = new Color(theme_list[0]);
 
